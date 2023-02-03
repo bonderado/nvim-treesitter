@@ -108,6 +108,10 @@ function M.select_compiler_args(repo, compiler)
     if fn.has "win32" == 0 then
       table.insert(args, "-fPIC")
     end
+    if repo.cxx_standard then
+      table.insert(args, "-std=" .. repo.cxx_standard)
+    end
+
     return args
   end
 end
